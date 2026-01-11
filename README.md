@@ -15,28 +15,59 @@ A modern, dark-mode Hugo theme with a clean, professional design. Built for docu
 
 ---
 
-## Quick Start
+## Installation
 
-1. Add the theme to your Hugo site:
+### As Hugo Module (Recommended)
+
+PAI Theme is available as a Hugo module for easy installation and updates:
+
+1. Initialize your Hugo site as a module (if not already):
 
 ```bash
-# Copy the theme to your themes directory
-cp -r pai-theme /path/to/your-site/themes/
+hugo mod init github.com/your-org/your-site
 ```
 
-2. Update your `hugo.yaml`:
+2. Add the theme to your `hugo.yaml`:
 
 ```yaml
-theme: pai-theme
+module:
+  imports:
+    - path: github.com/fredricnet/pai-theme
+      version: v1.0.0  # Optional: specify version or use latest
 ```
 
-3. Configure your site in `data/site.yaml` (see Configuration below)
+3. Install the module:
 
-4. Run Hugo:
+```bash
+hugo mod get -u github.com/fredricnet/pai-theme
+hugo mod tidy
+```
+
+4. Configure your site in `data/site.yaml` (see Configuration below)
+
+5. Run Hugo:
 
 ```bash
 hugo server
 ```
+
+### Updating the Theme
+
+To update to the latest version:
+
+```bash
+hugo mod get -u github.com/fredricnet/pai-theme
+hugo mod tidy
+```
+
+To update to a specific version:
+
+```bash
+hugo mod get -u github.com/fredricnet/pai-theme@v1.1.0
+hugo mod tidy
+```
+
+**Note**: After the initial fetch, Hugo uses a locally cached version for all builds until you explicitly update.
 
 ---
 
@@ -414,6 +445,35 @@ Crawl-delay: 1
 - Firefox (latest)
 - Safari (latest)
 - Mobile browsers
+
+---
+
+## Versioning
+
+PAI Theme uses semantic versioning (v1.0.0, v1.1.0, v2.0.0). See version tags on [GitHub](https://github.com/fredricnet/pai-theme/tags).
+
+### Current Version
+
+**v1.0.0** - Initial release
+
+### Changelog
+
+#### v1.0.0 (2024-01-11)
+- Initial release
+- Dark mode first design
+- Documentation system with sidebar navigation
+- Dictionary/glossary functionality
+- Blog support with featured images
+- SEO and AI-ready (JSON-LD, llms.txt, robots.txt)
+- Demo site with self-documenting examples
+
+---
+
+## Development
+
+For development workflow, testing, and contributing, see [WORKFLOW.md](WORKFLOW.md).
+
+The theme includes a demo site at `examples/demo/` for testing changes locally without pushing to GitHub.
 
 ---
 
